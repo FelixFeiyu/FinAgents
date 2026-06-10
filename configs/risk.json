@@ -1,0 +1,11 @@
+{
+  "max_single_weight": 0.10,
+  "max_sector_weight": 0.30,
+  "min_cash": 0.05,
+  "max_weekly_turnover": 0.20,
+  "max_rebuild_turnover": 0.40,
+  "transaction_cost_bps": 10,
+  "slippage_bps": 5,
+  "safety_margin_bps": 10
+}
+

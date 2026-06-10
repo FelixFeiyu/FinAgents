@@ -1,0 +1,41 @@
+{
+  "version": "1",
+  "agents": {
+    "technical": {
+      "description": "Price momentum and trend signals",
+      "processed_file": "data/processed/prices.json",
+      "raw_cache": "data/raw/yahoo/",
+      "ingest": "finagent ingest --dataset prices --source yahoo",
+      "features": ["momentum_4w", "momentum_12w"],
+      "evidence_source": "price_store"
+    },
+    "fundamental": {
+      "description": "Quarterly revenue, earnings growth and margin quality from SEC XBRL",
+      "processed_file": "data/processed/fundamentals.json",
+      "raw_cache": "data/raw/sec/",
+      "ingest": "finagent ingest --dataset fundamentals",
+      "features": ["growth_revenue_yoy", "growth_earnings_yoy", "quality_net_margin"],
+      "evidence_source": "sec_edgar",
+      "requires_env": ["SEC_USER_AGENT"]
+    },
+    "macro": {
+      "description": "Market-wide regime: 10y Treasury yield trend and VIX risk appetite",
+      "processed_file": "data/processed/macro.json",
+      "raw_cache": "data/raw/yahoo_macro/",
+      "ingest": "finagent ingest --dataset macro",
+      "features": ["macro_rate_trend", "macro_risk_appetite"],
+      "evidence_source": "yahoo_macro",
+      "series": ["^TNX", "^VIX"]
+    },
+    "critic": {
+      "description": "Bear-case risk features derived from price paths (drawdown, stress)",
+      "processed_file": "data/processed/prices.json",
+      "raw_cache": "data/raw/yahoo/",
+      "ingest": "finagent ingest --dataset prices --source yahoo",
+      "features": ["risk_drawdown_52w"],
+      "evidence_source": "price_store"
+    }
+  },
+  "ingest_all": "finagent ingest --dataset all --source yahoo",
+  "ingest_offline": "finagent ingest --dataset all --source synthetic"
+}

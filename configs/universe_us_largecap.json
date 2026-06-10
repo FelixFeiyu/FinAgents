@@ -1,0 +1,19 @@
+{
+  "universe_version": "us-largecap-demo-v2",
+  "frozen_at": "2026-06-10",
+  "symbols": ["AAPL", "MSFT", "NVDA", "AMZN", "GOOGL", "META", "JPM", "XOM", "UNH", "COST"],
+  "sectors": {
+    "AAPL": "Technology",
+    "MSFT": "Technology",
+    "NVDA": "Technology",
+    "AMZN": "Consumer",
+    "GOOGL": "Communication",
+    "META": "Communication",
+    "JPM": "Financials",
+    "XOM": "Energy",
+    "UNH": "Healthcare",
+    "COST": "Consumer",
+    "CASH": "CASH"
+  },
+  "survivorship_bias_disclosure": true
+}
